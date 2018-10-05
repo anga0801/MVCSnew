@@ -1,0 +1,83 @@
+﻿@using MVCSuppliers.Models
+@model SupplierPO
+@{
+    ViewBag.Title = "UpdateSupplier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">CreateSupplier</h2>
+
+@using (Html.BeginForm("UpdateSupplier", "Supplier", FormMethod.Post))
+{
+    @Html.HiddenFor(model => Model.SupplierID)
+
+    @Html.LabelFor(model => Model.CompanyName)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.CompanyName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.CompanyName, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.ContactName)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.ContactName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.ContactName, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.ContactTitle)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.ContactTitle, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.ContactTitle, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.Address)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.Address, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.City)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.City, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.Region)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.Region, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.Region, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.PostalCode)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.PostalCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.PostalCode, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.Country)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.Country, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.Country, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.Phone)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.Phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.Phone, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.Fax)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.Fax, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.Fax, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.HomePage)
+    <div class="form-group">
+        @Html.TextBoxFor(model => Model.HomePage, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.HomePage, "", new { @class = "text-danger" })
+    </div>
+    <br />
+
+    <input type="submit" value="Update" class="btn btn-primary glyphicon-apple" />
+}
+

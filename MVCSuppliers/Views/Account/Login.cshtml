@@ -1,0 +1,25 @@
+﻿@using MVCSuppliers.Models
+@model LoginPO
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.LabelFor(model => Model.Username)
+    <div class="=form-group">
+        @Html.TextBoxFor(model => Model.Username, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.Username, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(model => Model.Password)
+    <div class="=form-group">
+        @Html.PasswordFor(model => Model.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => Model.Password, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <input type="submit" value="Login" class="btn btn-success" />
+}

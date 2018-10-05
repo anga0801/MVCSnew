@@ -1,0 +1,54 @@
+﻿@using MVCSuppliers.Models
+@model IEnumerable<SupplierPO>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Northwind</title>
+<head>
+</head>
+<body>
+    <header>Suppliers for Northwind</header>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Contact Name</th>
+                <th>Contact Title</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Region</th>
+                <th>Postal Code</th>
+                <th>Country</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (SupplierPO supplier in Model)
+            {
+            <tr>
+                <td >@Html.ActionLink(supplier.CompanyName, "ViewSupplierDetails", "Supplier", new { supplierId = supplier.SupplierID }, null)</td>
+                <td>@supplier.ContactName</td>
+                <td>@supplier.ContactTitle</td>
+                <td>@supplier.Address</td>
+                <td>@supplier.City</td>
+                <td>@supplier.Region</td>
+                <td>@supplier.PostalCode</td>
+                <td>@supplier.Country</td>
+                <td>@supplier.Phone</td>
+                @if ((Session["Username"] != null) && ((int)Session["Role"] <= (2)))
+                {
+                    <td>@Html.ActionLink("Update", "UpdateSupplier", "Supplier", new { supplierId = supplier.SupplierID }, new { @class = "btn btn-primary" })</td>
+                }
+
+                @if ((Session["Username"] != null) && (Session["Role"].Equals(1)))
+                { 
+                    <td>@Html.ActionLink("Delete", "DeleteSupplier", "Supplier", new { supplierId = supplier.SupplierID }, new { @class = "btn btn-danger" })</td>
+                }
+            </tr>
+            }
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</body>
+

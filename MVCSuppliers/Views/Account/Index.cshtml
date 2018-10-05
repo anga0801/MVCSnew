@@ -1,0 +1,60 @@
+﻿@using MVCSuppliers.Models
+@model List<EmployeePO>
+    @{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Index</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Username
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Address
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!TempData.Keys.Contains("ErrorMessage"))
+            {
+            foreach (EmployeePO employee in Model)
+            {
+            <tr>
+                <td>
+                    @employee.Username
+                </td>
+                <td>
+                    @employee.FirstName
+                </td>
+                <td>
+                    @employee.LastName
+                </td>
+                <td>
+                    @employee.Address
+                </td>
+            </tr>
+            }
+            }
+            else
+            {
+            <tr>
+                <td colspan="4">
+                    <span class="text-danger">@TempData["ErrorMessage"]</span>
+                </td>
+            </tr>
+            }
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
